@@ -1,0 +1,127 @@
+// 修改轮播图小点的默认样式
+.am-carousel-wrap {
+  position: absolute;
+  bottom: -30px;
+  padding-top: 20px;
+  background: #fff;
+}
+.index {
+  position: relative;
+  .index_search {
+    width: 100vw;
+    top: 30px;
+    left: 0;
+    position: absolute;
+    height: 35px;
+    z-index: 10000;
+    padding: 0 20px;
+  }
+  .index_nav {
+    display: flex;
+    padding: 10px;
+    padding-top: 40px;
+    background: #fff;
+    .index_nav_item {
+      display: flex;
+      width: 25%;
+      flex-direction: column;
+      // justify-content: space-between;
+      align-items: center;
+      img {
+        width: 60%;
+      }
+      p {
+        padding-top: 10px;
+      }
+    }
+  }
+  .index_groups {
+    padding: 0 10px;
+    .groups_title {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      span:nth-child(1) {
+        font-size: 16px;
+        color: #000;
+        font-weight: 600;
+      }
+    }
+    .groups_main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .groups_item {
+        width: 48.5%;
+        background: #fff;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        .groups_item_left {
+          flex: 1;
+          .groups_item_left_title {
+            display: block;
+            color: #000;
+            font-weight: 600;
+            width: 60px;
+          }
+          .groups_item_left_desc {
+            display: flex;
+            color: #999;
+          }
+        }
+
+        .groups_item_right {
+          width: 40%;
+          img {
+          }
+        }
+      }
+    }
+  }
+  .index_news {
+    padding: 10px 20px;
+    background: #fff;
+    .news_title {
+      padding-top: 10;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .news_item {
+      display: block;
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+      .news_item_left {
+        width: 40%;
+        img {
+          border-radius: 5px;
+        }
+      }
+
+      .news_item_right {
+        flex: 1;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .news_item_right_title {
+          color: #000;
+          padding-right: 20px;
+        }
+
+        .news_item_right_info {
+          display: flex;
+          justify-content: space-between;
+          span {
+            color: #666;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

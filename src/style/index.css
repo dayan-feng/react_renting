@@ -1,0 +1,16 @@
+@import-normalize;
+@import "../assets/fonts/iconfont.css";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #333;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  width: 100%;
+}
