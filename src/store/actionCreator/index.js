@@ -11,3 +11,6 @@ export const actionInitCity = () => {
     });
   };
 };
+export const handleInitCity = (city) => {
+  return { type: CITY_INIT, city };
+};

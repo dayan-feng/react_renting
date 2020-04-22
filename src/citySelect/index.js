@@ -4,7 +4,7 @@ import { request } from "../utils/axios";
 import { connect } from "react-redux";
 import Css from "./index.scss";
 import { List } from "react-virtualized";
-
+import { handleInitCity } from "../store/actionCreator";
 class CitySelect extends Component {
   constructor() {
     super();
@@ -12,11 +12,19 @@ class CitySelect extends Component {
   }
   state = {
     cityList: [],
-    letterList: ["#", "热"],
+    letterList: [],
     letterIndex: 0,
+    cityIndex: 0,
+  };
+  /**
+   * 点击修改redux的城市
+   */
+  amendReduxCity = (city) => {
+    this.props.handleInitCity(city);
+    this.props.history.goBack();
   };
   async componentDidMount() {
-    let letterList = [];
+    let letterList = ["#", "热"];
     const cityList = [
       { title: "当前定位", data: [{ label: this.props.city }] },
     ];
@@ -51,6 +59,9 @@ class CitySelect extends Component {
     // 提前计算好city的距离
     this.cityIndex.measureAllRows();
   }
+  /**
+   * 渲染List组件的每个城市
+   */
   rowRenderer = ({ key, index, isScrolling, isVisible, style }) => {
     return (
       <div key={key} style={style} className="city_list">
@@ -59,7 +70,13 @@ class CitySelect extends Component {
         </div>
         <div className="city_list_box">
           {this.state.cityList[index].data.map((v) => (
-            <div key={v.label} className="city_list_item">
+            <div
+              onClick={() => {
+                this.amendReduxCity(v.label);
+              }}
+              key={v.label}
+              className="city_list_item"
+            >
               {v.label}
             </div>
           ))}
@@ -79,9 +96,10 @@ class CitySelect extends Component {
     });
   };
   render() {
-    const { cityList, letterList, letterIndex } = this.state;
+    const { cityIndex, cityList, letterList, letterIndex } = this.state;
     return (
       <div className="city">
+        {/* 1.导航栏开始 */}
         <div className="city_nav">
           <NavBar
             className="city_nav_bar"
@@ -94,6 +112,8 @@ class CitySelect extends Component {
             城市选择
           </NavBar>
         </div>
+        {/* 1.导航栏结束 */}
+        {/* 2.城市滑动列表开始 */}
         <div className="city_list">
           <List
             // List的宽度
@@ -107,7 +127,7 @@ class CitySelect extends Component {
             // 如何渲染每一行标签
             rowRenderer={this.rowRenderer}
             // 对齐字母
-            scrollToIndex={letterIndex}
+            scrollToIndex={cityIndex}
             // 对齐位置
             scrollToAlignment="start"
             // 滑动触发事件,返回城市index
@@ -115,11 +135,13 @@ class CitySelect extends Component {
             ref={(ref) => (this.cityIndex = ref)}
           />
         </div>
+        {/* 2.城市滑动列表结束 */}
+        {/* 3.右边字母列表开始 */}
         <div className="city_letter">
           {letterList.map((v, i) => (
             <div
               onClick={() => {
-                this.setState({ letterIndex: i });
+                this.setState({ cityIndex: i });
               }}
               key={v}
               className={i === letterIndex ? "currentLetter" : ""}
@@ -128,6 +150,7 @@ class CitySelect extends Component {
             </div>
           ))}
         </div>
+        {/* 右边字母列表结束 */}
       </div>
     );
   }
@@ -136,4 +159,14 @@ class CitySelect extends Component {
 const hindleStateCityProps = (state) => ({
   city: state.cityReducer.city,
 });
-export default connect(hindleStateCityProps)(CitySelect);
+const hindleDispacthCityProps = (dispacth) => {
+  return {
+    handleInitCity(city) {
+      dispacth(handleInitCity(city));
+    },
+  };
+};
+export default connect(
+  hindleStateCityProps,
+  hindleDispacthCityProps
+)(CitySelect);

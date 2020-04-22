@@ -1,0 +1,126 @@
+.main {
+  position: relative;
+  .main_map {
+    height: calc(100vh - 45px);
+    .carLabel {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      // flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+      background: #19c26de6;
+      border-radius: 50%;
+      font-size: 12px;
+      span {
+        color: #fff;
+        font-size: 12px;
+        flex: 1;
+        &:nth-child(1) {
+          padding-top: 15px;
+        }
+        &:nth-child(2) {
+          margin-top: -15px;
+        }
+      }
+    }
+    .rectLabel {
+      background: #19c26de6;
+      border-radius: 3px;
+      padding: 3px;
+      span {
+        color: #fff;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .main_house {
+    position: absolute;
+    height: 0vh;
+    overflow: hidden;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+    transition: height 1s;
+    .main_house_head {
+      height: 45px;
+      background: #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      span {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+    .main_house_list {
+      height: calc(100% - 45px);
+      padding: 0 10px;
+      overflow: scroll;
+      .main_house_item {
+        display: flex;
+        padding: 20px 0;
+        border-bottom: 1px solid #ccc;
+        .house_item_left {
+          flex: 2;
+          img {
+            width: 100%;
+          }
+        }
+
+        .house_item_right {
+          padding-left: 10px;
+          flex: 3;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .house_item_title {
+            font-weight: 600;
+            height: 16px;
+            overflow: hidden;
+          }
+          .house_item_dest {
+            color: #ccc;
+            font-size: 12px;
+            margin: 5px 0;
+            height: 12px;
+            overflow: hidden;
+          }
+          .house_item_tags {
+            font-size: 12px;
+            font-size: #ddd;
+            padding-bottom: 5px;
+
+            span {
+              background: #f5f5f5;
+              padding: 1px 2px;
+              border-radius: 2px;
+              color: #00c2d1;
+              font-size: 12px;
+              margin-right: 5px;
+              &:nth-child(2) {
+                color: #03cc90;
+              }
+            }
+          }
+
+          .house_item_price {
+            color: red;
+            span {
+              color: red;
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+  .main_show_house {
+    height: 60vh;
+  }
+}
