@@ -1,0 +1,24 @@
+.main {
+  height: calc(100vh - 130px);
+  .main_header {
+    position: relative;
+    background: #f5f5f5;
+    .main_header_navbar {
+      padding: 2px 0;
+    }
+    .main_header_search {
+      position: absolute;
+      width: 80%;
+      top: 8px;
+      right: 18px;
+    }
+  }
+  .main_house {
+    height: calc(100vh - 140px);
+    overflow: auto;
+    .main_house_item {
+      overflow: hidden;
+      padding: 0 10px;
+    }
+  }
+}

@@ -1,3 +1,4 @@
 import { combineReducers } from "redux";
 import cityReducer from "./cityReducer";
-export default combineReducers({ cityReducer });
+import tokenReducer from "./tokenReducer";
+export default combineReducers({ cityReducer, tokenReducer });

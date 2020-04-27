@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, lazy } from "react";
 import { TabBar } from "antd-mobile";
 import {
   HashRouter as Router,
@@ -23,7 +23,7 @@ class Home extends Component {
   render() {
     return (
       <div style={{ position: "fixed", height: "100%", width: "100%", top: 0 }}>
-        <Route to="/home">
+        <Route exact path="/home">
           <Redirect to="/home/index"></Redirect>
         </Route>
         <TabBar

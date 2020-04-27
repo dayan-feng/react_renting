@@ -5,6 +5,9 @@
   margin: 0;
   box-sizing: border-box;
   font-size: 14px;
+  touch-action: pan-y;
+}
+body {
   color: #333;
 }
 a {

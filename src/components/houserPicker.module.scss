@@ -1,0 +1,120 @@
+.picker {
+  background: #fff;
+  color: #333;
+  .picker_navbar {
+    background: #fff;
+    position: relative;
+
+    .picker_navbar_title {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-bottom: 1px solid #ccc;
+      .picker_navbar_item {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .colorText {
+        color: #00c27d;
+      }
+    }
+    .picker_navbar_filter {
+      .picker_navbar_filter_item {
+        .picker_filter_item_btn {
+          display: flex;
+          height: 50px;
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+          }
+          span:nth-child(1) {
+            flex: 2;
+            color: #00c27d;
+            background: #fff;
+            border-top: 1px solid #ccc;
+          }
+          span:nth-child(2) {
+            flex: 3;
+            color: #fff;
+            background: #00c27d;
+          }
+        }
+      }
+      .picker_filter_if {
+        position: fixed;
+        width: 75%;
+        background: #fff;
+        height: calc(100vh - 49px);
+        z-index: 1005;
+        top: 0;
+        right: 0;
+        overflow: auto;
+        .filter_if_box {
+          margin: 0 15px;
+          border-bottom: 1px solid #ccc;
+          .filter_if_title {
+            font-size: 16px;
+            padding: 20px 0;
+          }
+
+          .filter_if_item {
+            display: flex;
+            flex-wrap: wrap;
+            .filter_if_item_label {
+              font-size: 12px;
+              width: 70px;
+              padding: 8px 0;
+              border: 1px solid #ddd;
+              margin: 0 20px 20px 0;
+              border-radius: 5px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .active {
+              border: 1px solid #00c27d;
+              background: rgba(0, 204, 129, 0.3);
+              color: #00c27d;
+            }
+          }
+        }
+        .filter_if_btn {
+          position: fixed;
+          width: 75%;
+          bottom: 0;
+          height: 50px;
+          display: flex;
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+          }
+          span:nth-child(1) {
+            flex: 1;
+            color: #00c27d;
+            background: #fff;
+            border-top: 1px solid #ddd;
+          }
+          span:nth-child(2) {
+            flex: 2;
+            color: #fff;
+            background: #00c27d;
+          }
+        }
+      }
+    }
+  }
+  .shade {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 999;
+    opacity: 0.6;
+  }
+}

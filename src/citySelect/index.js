@@ -156,17 +156,14 @@ class CitySelect extends Component {
   }
 }
 
-const hindleStateCityProps = (state) => ({
+const mapStateCityProps = (state) => ({
   city: state.cityReducer.city,
 });
-const hindleDispacthCityProps = (dispacth) => {
+const mapDispacthCityProps = (dispacth) => {
   return {
     handleInitCity(city) {
       dispacth(handleInitCity(city));
     },
   };
 };
-export default connect(
-  hindleStateCityProps,
-  hindleDispacthCityProps
-)(CitySelect);
+export default connect(mapStateCityProps, mapDispacthCityProps)(CitySelect);

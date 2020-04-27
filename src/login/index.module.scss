@@ -1,0 +1,30 @@
+.login {
+  height: 100vh;
+  background: #fff;
+  .login_navbar {
+  }
+
+  .login_form {
+    padding: 20px;
+    input {
+      display: block;
+      width: 100%;
+      border: 0;
+      height: 70px;
+      border-bottom: 1px solid #ccc;
+      padding-left: 15px;
+    }
+  }
+
+  .login_btn {
+    width: calc(100% - 40px);
+    background: #00bf79;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 0;
+    margin: 10px auto;
+    color: #fff;
+    font-size: 16px;
+  }
+}

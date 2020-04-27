@@ -7,7 +7,6 @@ import nav2 from "../assets/images/nav-2.png";
 import nav3 from "../assets/images/nav-3.png";
 import nav4 from "../assets/images/nav-4.png";
 import IndexSearch from "../components/IndexSearch";
-import { connect } from "react-redux";
 class Index extends React.Component {
   state = {
     carouselList: [],
@@ -55,10 +54,10 @@ class Index extends React.Component {
     return (
       <div className="index">
         <div className="index_search">
-          <IndexSearch city={this.props.city}></IndexSearch>
+          <IndexSearch></IndexSearch>
         </div>
         {/* 1.首页轮播图开始 */}
-        {carouselList.length && (
+        {carouselList.length !== 0 && (
           <Carousel autoplay infinite style={{ background: "#fff" }}>
             {carouselList.map((val) => (
               <a
@@ -142,9 +141,4 @@ class Index extends React.Component {
     );
   }
 }
-const handleStateCityToProps = (state) => {
-  return {
-    city: state.cityReducer.city,
-  };
-};
-export default connect(handleStateCityToProps)(Index);
+export default Index;

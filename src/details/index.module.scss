@@ -1,0 +1,189 @@
+.details {
+  background: #fff;
+  padding: 45px 0 50px;
+  .navbar {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+  }
+  .title {
+    padding: 20px 20px 10px;
+    font-size: 16px;
+  }
+
+  .feature {
+    margin: 0 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    span {
+      font-size: 12px;
+      padding: 2px 5px;
+      border-radius: 2px;
+      color: #03c3d2;
+      background: rgba(220, 246, 249, 0.5);
+    }
+  }
+
+  .info {
+    margin: 0 20px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    div {
+      color: #ff3a20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      span:nth-child(1) {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 6px;
+      }
+      span:nth-child(2) {
+        color: #888;
+      }
+    }
+
+    .info_roomType {
+      span {
+      }
+    }
+
+    .info_size {
+      span {
+      }
+    }
+  }
+
+  .msg {
+    display: flex;
+    padding: 20px 20px 10px;
+    flex-wrap: wrap;
+    border-bottom: 10px solid #f5f5f5;
+    div {
+      width: 50%;
+      color: #888;
+      padding-bottom: 10px;
+      span {
+        color: #333;
+        padding-left: 10px;
+      }
+    }
+  }
+  .site {
+    padding: 20px;
+    color: #888;
+    span {
+      color: #333;
+      padding-left: 5px;
+    }
+  }
+  .map {
+    width: 100%;
+    height: 150px;
+    .mapText {
+      color: #fff;
+      background: red;
+      padding: 0 5px;
+    }
+  }
+  .mating {
+    margin: 20px;
+    padding-bottom: 20px;
+    color: #000;
+    font-weight: 600;
+    border-bottom: 1px solid #ccc;
+  }
+  .mating_content {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 10px solid #f5f5f5;
+    div {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 20px;
+      i {
+        font-size: 25px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+  .state {
+    margin: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    color: #000;
+    font-weight: 600;
+  }
+
+  .houseOwner {
+    display: flex;
+    padding: 0 20px 30px;
+    align-items: center;
+    justify-content: space-between;
+    .headImg {
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+    }
+    .name {
+      display: flex;
+      flex-direction: column;
+      margin-left: -30px;
+      i {
+        font-size: 18px;
+        padding-top: 5px;
+        color: red;
+        span {
+          font-size: 14px;
+          padding-left: 5px;
+        }
+      }
+    }
+    .sendMsg {
+      border: 1px solid #00c27d;
+      color: #00c27d;
+      padding: 3px 10px;
+      border-radius: 3px;
+      margin-right: 10px;
+    }
+  }
+  .describe {
+    padding: 0 20px 20px;
+    border-bottom: 10px solid #f5f5f5;
+    div {
+      font-size: 16px;
+      padding-bottom: 5px;
+    }
+  }
+  .serve {
+    display: flex;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    background: #fff;
+    font-size: 16px;
+    color: #666;
+    div {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ddd;
+      margin-left: -1px;
+      &:nth-child(3) {
+        background: #00c27d;
+        color: #fff;
+      }
+    }
+  }
+}

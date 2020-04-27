@@ -3,6 +3,7 @@ import { NavBar, Icon } from "antd-mobile";
 import { connect } from "react-redux";
 import Css from "./index.module.scss";
 import { request, baseURL } from "../utils/axios";
+import HouseItem from "../components/houseItem";
 
 let map = null;
 const BMap = window.BMap;
@@ -103,7 +104,6 @@ class MapFound extends Component {
           <div id="allmap" className={Css.main_map}></div>
           {/* 2.地图结束 */}
           {/* 3.房子列表开始 */}
-
           <div
             className={[
               Css.main_house,
@@ -115,27 +115,12 @@ class MapFound extends Component {
             </div>
             <div className={Css.main_house_list}>
               {houseList.map((v, index) => (
-                <div key={index} className={Css.main_house_item}>
-                  <div className={Css.house_item_left}>
-                    <img src={baseURL + v.houseImg} alt="" />
-                  </div>
-                  <div className={Css.house_item_right}>
-                    <div className={Css.house_item_title}>{v.title}</div>
-                    <div className={Css.house_item_dest}>{v.desc}</div>
-                    <div className={Css.house_item_tags}>
-                      {v.tags.map((vv) => (
-                        <span key={vv}>{vv}</span>
-                      ))}
-                    </div>
-                    <div className={Css.house_item_price}>
-                      <span>{v.price}</span>元/月
-                    </div>
-                  </div>
+                <div key={index}>
+                  <HouseItem houseItem={v}></HouseItem>
                 </div>
               ))}
             </div>
           </div>
-
           {/* 房子列表结束 */}
         </div>
       </div>
