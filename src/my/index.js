@@ -6,18 +6,20 @@ import { connect } from "react-redux";
 import { request } from "../utils/axios";
 import { actionRemoveToken } from "../store/actionCreator";
 class My extends Component {
+  constructor() {
+    super();
+  }
   state = {
     userInfo: {},
   };
   async componentDidMount() {
+    const { token } = this.props;
     const res = await request.get("/user", {
       headers: {
-        authorization:
-          " eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NCwiaWF0IjoxNTg3OTcyNjc0LCJleHAiOjE1ODc5ODcwNzR9.B5e_Ui0l2VQxYAC_Pc1T4kLAkGxmgjX9FnTzhc25bqI",
+        authorization: token,
       },
     });
-    this.setState({ userInfo: res.data.body });
-    console.log(res.data.body);
+    res.data.body && this.setState({ userInfo: res.data.body });
   }
   // 点击退出,删除token
   quitRemoveToken = () => {
@@ -84,7 +86,10 @@ class My extends Component {
             <i className="iconfont icon-record"></i>
             看房记录
           </div>
-          <div className={Css.my_info_text}>
+          <div
+            className={Css.my_info_text}
+            onClick={() => this.props.history.push("/send")}
+          >
             <i className="iconfont icon-identity"></i>
             成为房主
           </div>

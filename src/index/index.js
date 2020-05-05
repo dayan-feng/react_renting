@@ -49,6 +49,16 @@ class Index extends React.Component {
       });
     });
   };
+  // 点击nav跳到不同页面
+  gotoNavPage(v) {
+    if (v.id === 3) {
+      this.props.history.push("/mapFound");
+    } else if (v.id === 4) {
+      this.props.history.push("/send");
+    } else {
+      this.props.history.push("/home/found");
+    }
+  }
   render() {
     const { carouselList, navList, groupsList, newsList } = this.state;
     return (
@@ -90,7 +100,11 @@ class Index extends React.Component {
         {/* 2.首页nav开始 */}
         <div className="index_nav">
           {navList.map((v) => (
-            <div className="index_nav_item" key={v.id}>
+            <div
+              className="index_nav_item"
+              key={v.id}
+              onClick={() => this.gotoNavPage(v)}
+            >
               <img src={v.img} alt="" />
               <p>{v.text}</p>
             </div>
@@ -105,7 +119,13 @@ class Index extends React.Component {
           </div>
           <div className="groups_main">
             {groupsList.map((v) => (
-              <div className="groups_item" key={v.id}>
+              <div
+                onClick={() => {
+                  this.props.history.push("/home/found");
+                }}
+                className="groups_item"
+                key={v.id}
+              >
                 <div className="groups_item_left">
                   <span className="groups_item_left_title">{v.title}</span>
                   <span className="groups_item_left_desc">{v.desc}</span>
@@ -122,7 +142,11 @@ class Index extends React.Component {
         <div className="index_news">
           <div className="news_title">最新资讯</div>
           {newsList.map((v) => (
-            <div className="news_item" key={v.id}>
+            <div
+              className="news_item"
+              key={v.id}
+              onClick={() => this.props.history.push("/details")}
+            >
               <div className="news_item_left">
                 <img src={baseURL + v.imgSrc} alt="" />
               </div>

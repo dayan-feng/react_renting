@@ -4,10 +4,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 14px;
   touch-action: pan-y;
 }
 body {
+  font-size: 14px;
   color: #333;
 }
 a {

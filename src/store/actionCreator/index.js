@@ -16,23 +16,22 @@ export const handleInitCity = (city) => {
   return { type: CITY_INIT, city };
 };
 export const actionToken = (data) => {
-  console.log(this);
   return async (dispatch) => {
-    const res = await (await request.post("/user/login", data)).data;
-    console.log(res);
-    if (res.status === 400) {
+    const { status, body } = (await request.post("/user/login", data)).data;
+    body && window.localStorage.setItem("token", body.token);
+    if (status === 400) {
       return false;
     } else {
       dispatch({
         type: TOKEN,
-        token: res.body.token,
+        token: body.token,
       });
       return true;
     }
   };
 };
 export const actionRemoveToken = () => {
-  console.log(1);
+  window.localStorage.setItem("token", "");
   return {
     type: TOKEN,
     token: "",

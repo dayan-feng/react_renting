@@ -2,10 +2,14 @@ import axios from "axios";
 import { Toast } from "antd-mobile";
 export const baseURL = "http://157.122.54.189:9060";
 export let request = axios.create({ baseURL });
+
+const token = window.localStorage.getItem("token");
+
 // 添加请求拦截器
 let requestNum = 0;
 request.interceptors.request.use(
   function (config) {
+    config.headers.authorization = token;
     requestNum++;
     // 在发送请求之前做些什么
     Toast.loading("加载中...", 0);

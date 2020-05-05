@@ -22,9 +22,6 @@ class Details extends Component {
     const { id } = this.props.location;
     const details = (await request("/houses/" + "5cc450a21439630e5b3dca75"))
       .data.body;
-    const asd = await request("/houses/" + "5cc450a21439630e5b3dca75");
-    console.log(asd);
-
     this.setState({ details });
     console.log(details);
     this.getMapToHtml(details);

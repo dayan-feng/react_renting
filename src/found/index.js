@@ -22,10 +22,10 @@ class Found extends Component {
   constructor() {
     super();
     this.list = React.createRef();
+    this.state = {
+      houseList: [],
+    };
   }
-  state = {
-    houseList: [],
-  };
   // 点击确认,子传父
   submitPriceObj = (e) => {
     this.setState({ houseList: [] });
