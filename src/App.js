@@ -17,6 +17,7 @@ const Login = lazy(() => import("./login"));
 const Send = lazy(() => import("./send"));
 const Dome = lazy(() => import("./dome"));
 const Search = lazy(() => import("./search"));
+const RentOut = lazy(() => import("./rentOut"));
 class App extends Component {
   componentDidMount() {
     this.props.handleInitCity();
@@ -39,6 +40,7 @@ class App extends Component {
                 <Route path="/details" component={Details}></Route>
                 <Route path="/Send" component={Send}></Route>
                 <Route path="/Search/:id" component={Search}></Route>
+                <Route path="/RentOut" component={RentOut}></Route>
               </Suspense>
             </Switch>
           </Router>

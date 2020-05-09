@@ -1,6 +1,9 @@
 import { getLocationCity } from "../../utils/baiduMap";
-import { CITY_INIT, TOKEN } from "../actionType";
+import { CITY_INIT, TOKEN, SEND_HOUSE } from "../actionType";
 import { request } from "../../utils/axios";
+export const actionSendHouse = (house) => {
+  return { type: SEND_HOUSE, house };
+};
 export const actionInitCity = () => {
   return (dispatch) => {
     getLocationCity().then((res) => {
@@ -18,6 +21,7 @@ export const handleInitCity = (city) => {
 export const actionToken = (data) => {
   return async (dispatch) => {
     const { status, body } = (await request.post("/user/login", data)).data;
+    console.log(body);
     body && window.localStorage.setItem("token", body.token);
     if (status === 400) {
       return false;

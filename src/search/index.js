@@ -16,17 +16,29 @@ const Search = (props) => {
     }));
     setSearchList(searchList);
   };
+  // 带参回到发布房源页
+  const gotoSendPage = (community) => {
+    props.history.replace({
+      pathname: "/send",
+      state: community,
+    });
+  };
   return (
     <div>
       <div className={Css.inputBar}>
-        <SearchBar placeholder="请输入小区或地址" onChange={writeInpValue} />
+        <SearchBar
+          showCancelButton
+          onCancel={props.history.goBack}
+          placeholder="请输入小区或地址"
+          onChange={writeInpValue}
+        />
       </div>
       <div className={Css.search_list}>
         {searchList.map((v) => (
           <div
             className={Css.item}
             key={v.community}
-            onClick={() => props.history.goBack()}
+            onClick={gotoSendPage.bind(this, v)}
           >
             {v.communityName}
           </div>

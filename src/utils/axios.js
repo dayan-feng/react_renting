@@ -3,12 +3,11 @@ import { Toast } from "antd-mobile";
 export const baseURL = "http://157.122.54.189:9060";
 export let request = axios.create({ baseURL });
 
-const token = window.localStorage.getItem("token");
-
 // 添加请求拦截器
 let requestNum = 0;
 request.interceptors.request.use(
   function (config) {
+    const token = window.localStorage.getItem("token");
     config.headers.authorization = token;
     requestNum++;
     // 在发送请求之前做些什么
@@ -31,6 +30,8 @@ request.interceptors.response.use(
   },
   function (error) {
     // 对响应错误做点什么
+    Toast.hide("");
+    Toast.loading("请求参数有误", 2);
     return Promise.reject(error);
   }
 );
